@@ -11,6 +11,7 @@ public class Ticket implements Serializable {
     private Long id;
     private String nomClient;
     private String prix;
+    @Column(unique = true)
     private int codePayement;
     private boolean reserve;
     @ManyToOne
