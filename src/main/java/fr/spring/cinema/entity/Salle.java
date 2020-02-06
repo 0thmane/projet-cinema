@@ -22,7 +22,17 @@ public class Salle implements Serializable {
     @OneToMany(mappedBy = "salle")
     private Collection<Projection> projections ;
 
+    private int nombreDePlace ;
+
     public Salle() {
+    }
+
+    public int getNombreDePlace() {
+        return nombreDePlace;
+    }
+
+    public void setNombreDePlace(int nombreDePlace) {
+        this.nombreDePlace = nombreDePlace;
     }
 
     public Long getId() {

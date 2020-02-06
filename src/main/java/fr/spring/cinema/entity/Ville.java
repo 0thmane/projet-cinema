@@ -21,6 +21,10 @@ public class Ville implements Serializable {
     public Ville() {
     }
 
+    public Ville(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }

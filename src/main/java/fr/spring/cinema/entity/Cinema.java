@@ -16,12 +16,22 @@ public class Cinema implements Serializable {
     private Double longitude;
     private Double latitude;
     private Double altitude;
-    @OneToMany(mappedBy = "cinema",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cinema")
     private Collection<Salle> salles ;
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    private int nombreDeSalle ;
+    @ManyToOne
     private Ville ville;
 
     public Cinema() {
+    }
+
+    public int getNombreDeSalle() {
+        return nombreDeSalle;
+    }
+
+    public void setNombreDeSalle(int nombreDeSalle) {
+        this.nombreDeSalle = nombreDeSalle;
     }
 
     public Long getId() {
