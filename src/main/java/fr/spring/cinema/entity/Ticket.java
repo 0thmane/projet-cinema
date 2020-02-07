@@ -10,9 +10,9 @@ public class Ticket implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nomClient;
-    private String prix;
-    @Column(unique = true)
-    private int codePayement;
+    private double prix;
+    @Column(unique = true,nullable = true)
+    private Integer codePayement;
     private boolean reserve;
     @ManyToOne
     private Projection projection;
@@ -38,19 +38,19 @@ public class Ticket implements Serializable {
         this.nomClient = nomClient;
     }
 
-    public String getPrix() {
+    public double getPrix() {
         return prix;
     }
 
-    public void setPrix(String prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
 
-    public int getCodePayement() {
+    public Integer getCodePayement() {
         return codePayement;
     }
 
-    public void setCodePayement(int codePayement) {
+    public void setCodePayement(Integer codePayement) {
         this.codePayement = codePayement;
     }
 

@@ -12,7 +12,7 @@ public class Film implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id ;
     private String titre;
-    private String duree;
+    private double duree;
     private String realisateur;
     private String description;
     private String photo;
@@ -41,11 +41,11 @@ public class Film implements Serializable {
         this.titre = titre;
     }
 
-    public String getDuree() {
+    public double getDuree() {
         return duree;
     }
 
-    public void setDuree(String duree) {
+    public void setDuree(double duree) {
         this.duree = duree;
     }
 
