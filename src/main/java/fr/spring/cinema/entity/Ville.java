@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 public class Ville implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name ;
     private Double longitude;

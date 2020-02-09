@@ -7,20 +7,21 @@ import java.util.Objects;
 @Entity
 public class Ticket implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomClient;
     private double prix;
-    @Column(unique = true,nullable = true)
+    @Column(unique = false,nullable = true)
     private Integer codePayement;
     private boolean reserve;
     @ManyToOne
-    private Projection projection;
+    private ProjectionFilm projectionFilm;
     @ManyToOne
     private Place place;
 
     public Ticket() {
     }
+
 
     public Long getId() {
         return id;
@@ -62,12 +63,12 @@ public class Ticket implements Serializable {
         this.reserve = reserve;
     }
 
-    public Projection getProjection() {
-        return projection;
+    public ProjectionFilm getProjectionFilm() {
+        return projectionFilm;
     }
 
-    public void setProjection(Projection projection) {
-        this.projection = projection;
+    public void setProjectionFilm(ProjectionFilm projectionFilm) {
+        this.projectionFilm = projectionFilm;
     }
 
     public Place getPlace() {

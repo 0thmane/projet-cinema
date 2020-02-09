@@ -127,7 +127,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
                     film.setTitre(nameFilm);
                     film.setDescription(nameFilm);
                     film.setDuree(durre[new Random().nextInt(durre.length)]);
-                    film.setPhoto(nameFilm.replaceAll(" ",""));
+                    film.setPhoto(nameFilm.replaceAll(" ","")+".jpeg");
                     film.setCategorie(categorieList.get(new Random().nextInt(categorieList.size())));
                     filmRepository.save(film) ;
 
@@ -137,20 +137,21 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
     @Override
     public void initProjections() {
         double[] prices = new double[]{ 5d, 7d, 9d};
+        List<Film> films = filmRepository.findAll();
         villeRepository.findAll().forEach(ville -> {
             ville.getCinemas().forEach(cinema->{
                 cinema.getSalles().forEach(salle ->{
-                    filmRepository.findAll().forEach(film ->{
                         seanceRepository.findAll().forEach(seance->{
-                            Projection projection = new Projection();
-                            projection.setDateProjection(new Date());
-                            projection.setFilm(film);
-                            projection.setPrix(prices[new Random().nextInt(prices.length)]);
-                            projection.setSalle(salle);
-                            projection.setSeance(seance);
-                            projectionRepository.save(projection);
+                            int index = new Random().nextInt(films.size());
+                            ProjectionFilm projectionFilm = new ProjectionFilm();
+                            projectionFilm.setDateProjection(new Date());
+                            projectionFilm.setFilm(films.get(index));
+                            projectionFilm.setPrix(prices[new Random().nextInt(prices.length)]);
+                            projectionFilm.setSalle(salle);
+                            projectionFilm.setSeance(seance);
+                            projectionRepository.save(projectionFilm);
                         });
-                    });
+
                 });
             });
 
@@ -165,7 +166,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
                Ticket ticket = new Ticket() ;
                ticket.setPlace(place);
                ticket.setPrix(p.getPrix());
-               ticket.setProjection(p);
+               ticket.setProjectionFilm(p);
                ticket.setReserve(false);
                ticketRepository.save(ticket);
            });

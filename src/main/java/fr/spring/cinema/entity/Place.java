@@ -1,5 +1,7 @@
 package fr.spring.cinema.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -9,7 +11,7 @@ import java.util.Objects;
 public class Place implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name ;
     private int numero;
@@ -19,6 +21,7 @@ public class Place implements Serializable {
     @ManyToOne
     private Salle salle;
     @OneToMany(mappedBy = "place")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Ticket> tickets;
 
     public Long getId() {

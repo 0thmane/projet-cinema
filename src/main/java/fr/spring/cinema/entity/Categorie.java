@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 public class Categorie implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     @OneToMany(mappedBy = "categorie")

@@ -1,5 +1,7 @@
 package fr.spring.cinema.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -9,7 +11,7 @@ import java.util.Objects;
 @Entity
 public class Film implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
     private String titre;
     private double duree;
@@ -18,8 +20,10 @@ public class Film implements Serializable {
     private String photo;
     private Date dateSortie;
     @OneToMany(mappedBy = "film")
-    private Collection<Projection> projections;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Collection<ProjectionFilm> projectionFilms;
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Categorie categorie;
 
     public Film() {
@@ -81,12 +85,12 @@ public class Film implements Serializable {
         this.dateSortie = dateSortie;
     }
 
-    public Collection<Projection> getProjections() {
-        return projections;
+    public Collection<ProjectionFilm> getProjectionFilms() {
+        return projectionFilms;
     }
 
-    public void setProjections(Collection<Projection> projections) {
-        this.projections = projections;
+    public void setProjectionFilms(Collection<ProjectionFilm> projectionFilms) {
+        this.projectionFilms = projectionFilms;
     }
 
     public Categorie getCategorie() {

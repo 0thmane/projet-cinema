@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 public class Seance implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Temporal(TemporalType.TIME)
     private Date heureDebut;
