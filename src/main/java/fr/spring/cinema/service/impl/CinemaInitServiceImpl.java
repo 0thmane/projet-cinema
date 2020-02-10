@@ -41,7 +41,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
     @Override
     public void initVille() {
 
-        Stream.of("Paris", "Aubervilliers", "Rosny", "Villemomble", "Chelle").
+        Stream.of("Paris", "Aubervilliers", "Rosny", "Villemomble", "Chelles").
                 forEach(v ->{
                     Ville ville = new Ville();
                     ville.setName(v);

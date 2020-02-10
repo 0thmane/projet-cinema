@@ -2,6 +2,7 @@ package fr.spring.cinema;
 
 import fr.spring.cinema.entity.Film;
 import fr.spring.cinema.entity.Salle;
+import fr.spring.cinema.entity.Ticket;
 import fr.spring.cinema.service.ICinemaInitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
