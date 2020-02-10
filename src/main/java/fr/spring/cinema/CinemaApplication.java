@@ -1,6 +1,7 @@
 package fr.spring.cinema;
 
 import fr.spring.cinema.entity.Film;
+import fr.spring.cinema.entity.Salle;
 import fr.spring.cinema.service.ICinemaInitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,16 +25,16 @@ public class CinemaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		restConfiguration.exposeIdsFor(Film.class);
-		iCinemaInitService.initVille();
-		iCinemaInitService.initCinema();
-		iCinemaInitService.initSalles();
-		iCinemaInitService.initPlaces();
-		iCinemaInitService.initSeances();
-		iCinemaInitService.initCategories();
-		iCinemaInitService.initFilms();
-		iCinemaInitService.initProjections();
-		iCinemaInitService.initTickets();
+		restConfiguration.exposeIdsFor(Film.class, Salle.class);
+//		iCinemaInitService.initVille();
+//		iCinemaInitService.initCinema();
+//		iCinemaInitService.initSalles();
+//		iCinemaInitService.initPlaces();
+//		iCinemaInitService.initSeances();
+//		iCinemaInitService.initCategories();
+//		iCinemaInitService.initFilms();
+//		iCinemaInitService.initProjections();
+//		iCinemaInitService.initTickets();
 
 	}
 }

@@ -6,14 +6,14 @@ import org.springframework.data.rest.core.config.Projection;
 import java.util.Collection;
 import java.util.Date;
 
-@Projection(name = "p1",types = ProjectionFilm.class)
+@Projection(name = "p1",types = {ProjectionFilm.class,Place.class})
 public interface ProjectionFilmProj {
     public Double getPrix();
     public Date getDateProjection();
     public Film getFilm();
     public Salle getSalle();
     public Seance getSeance();
-    public Collection<Ticket> getTickets();
+
 
 
 }

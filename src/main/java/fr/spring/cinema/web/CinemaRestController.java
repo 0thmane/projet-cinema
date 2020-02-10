@@ -28,7 +28,8 @@ public class CinemaRestController {
     public byte[] images(@PathVariable("id") Long id) throws IOException {
         Film film = filmRepository.findById(id).get() ;
         String photoName = film.getPhoto();
-        File file = new File(System.getProperty("user.home")+"/Bureau/git/projet-cinema/images/"+photoName);
+       // File file = new File(System.getProperty("user.home")+"/Bureau/git/projet-cinema/images/"+photoName);
+        File file = new File(System.getProperty("user.home")+"/Documents/GITHUB/projet-cinema/images/"+photoName);
         Path path = Paths.get(file.toURI());
         return Files.readAllBytes(path);
 
